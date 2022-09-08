@@ -20,10 +20,7 @@ const Footer: React.FC = () => {
       <Container>
         <Content>
           <Title>Ivan Sakhman</Title>
-          <Description>
-            I have found the position in the AngelList.
-            The task was nice.
-          </Description>
+          <Description>I have found the position in the AngelList. The task was nice.</Description>
         </Content>
         <Button handleClick={backToTop} direction="top">
           <SimpleArrow />
