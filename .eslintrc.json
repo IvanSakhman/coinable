@@ -1,3 +1,68 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true // defines things like process.env when generating through node
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
+      "parserOptions": {
+        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      }
+    }
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended", // use recommended configs
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser", // uses babel-eslint transforms
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "import"],
+  "rules": {
+    // note you must disable the base rule as it can report incorrect errors
+    "react/jsx-props-no-spreading": "off",
+    "no-console": 0,
+    "no-confusing-arrow": "off",
+    "camelcase": "off",
+    "no-use-before-define": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import": 0,
+    "import/prefer-default-export": 0,
+    "space-before-function-paren": 0,
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/button-has-type": 2,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // detect react version
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }
